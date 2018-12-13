@@ -1,0 +1,49 @@
+<section id="register">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="register-box">
+        <div class="title">Regisztráció</div>
+        <div class="form-holder">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form">
+              <label for="register-username">Felhasználó név:</label><br>
+              <input type="text" id="register-username" autocomplete="off" formControlName = "registerUsername">
+              <div *ngIf="submitted && f.registerUsername.errors" class="invalid-feedback">
+                <div *ngIf="f.registerUsername.errors.required">A felhasználó név kötelező</div>
+              </div>
+            </div>
+            <div class="form">
+              <label for="register-psw">Jelszó:</label><br>
+              <input type="password" id="register-psw" autocomplete="off" formControlName = "registerPassword">
+              <div *ngIf="submitted && f.registerPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.registerPassword.errors.required">Jelszó kötelező</div>
+                <div *ngIf="f.registerPassword.errors.minlength">Jelszó nem elég hosszú</div>
+              </div>
+            </div>
+            <div class="form">
+              <label for="register-psw-again">Jelszó újra:</label><br>
+              <input type="password" id="register-psw-again" autocomplete="off" formControlName = "registerPasswordCo">
+              <div *ngIf="submitted" class="invalid-feedback">
+                <div *ngIf="passwordMatch">Nem egyeznek a jelszavak</div>
+              </div>
+            </div>
+            <div class="form">
+              <label for="role">Milyen jogosultság:</label><br>
+              <select name="role" id="role" formControlName= "registerRole">
+                <option value="ROLE_ADMIN">admin</option>
+                <option value="ROLE_STUDENT" selected>diák</option>
+                <option value="ROLE_LECTURER">tanár</option>
+              </select>
+              <div *ngIf="submitted && f.registerRole.errors" class="invalid-feedback">
+                <div *ngIf="f.registerRole.errors.required">Kérem válasszon egyet a role-ok közül</div>
+              </div>
+            </div>
+            <div class="btn-holder">
+              <input type="submit" value="Regisztrálok">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
