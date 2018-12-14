@@ -31,13 +31,13 @@ export class StudentService {
   }
 
   pickUpCourse(id: number): Promise<Student>{
-    return this.http.put<Student>(`${this.studentUrl}/${id}`,{
+    return this.http.put<Student>(`${this.studentUrl}/${id}/`+"/add-course",{
       //milyen targyat vesz fel
     }, httpOptions).toPromise();
   }
 
   leaveCourse(id: number): Promise<Student>{
-    return this.http.put<Student>(`${this.studentUrl}/${id}`,{
+    return this.http.put<Student>(`${this.studentUrl}/${id}`+"/remove-course",{
       //milyen targyat vesz fel
     }, httpOptions).toPromise();
   }
