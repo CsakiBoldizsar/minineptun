@@ -11,6 +11,9 @@ import { PagesnotfoundComponent } from './pages/pagesnotfound/pagesnotfound.comp
 
 
 import { HttpClientModule } from '@angular/common/http';
+import { MyCoursesComponent } from './pages/my-courses/my-courses.component';
+import { CourseListComponent } from './pages/course-list/course-list.component';
+import { CourseDetailsComponent } from './pages/course-details/course-details.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    PagesnotfoundComponent
+    PagesnotfoundComponent,
+    MyCoursesComponent,
+    CourseListComponent,
+    CourseDetailsComponent
   ],
   imports: [
     BrowserModule,
