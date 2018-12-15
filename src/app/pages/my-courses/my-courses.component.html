@@ -1,3 +1,19 @@
-<p>
-  my-courses works!
-</p>
+<section id="my-courses">
+  <div class="container">
+    <div class="title">
+      <h1>Felvett kurzusaim</h1>
+    </div>
+    <div class="list">
+      <div *ngFor = 'let course of courses' class ="course">
+        <div>A tárgy id-ja: </div>
+        <div class="subject-name">A tárgy neve: </div>
+        <div class="btn-holder">
+          <button type = "button" class = "btn btn-primary" (click) = "showDetails(course)">Több infó</button>
+        </div>
+        <div class="btn-holder">
+          <button type="button" class="btn btn-danger" (click) = 'removeCourse(course)'>Tárgy leadása</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,12 +1,14 @@
-import {User} from './user';
 import { Lecturer } from './lecturer';
 import { Student } from './student';
 
 export class Course {
-    id: string;
+    id: number;
     location: string;
     time: string;
     type: string;
-    students: Student[];
-    lecturer: Lecturer;
+    students: string[];
+    //students: Student[];
+    lecturer: string;
+    //lecturer: Lecturer;
+    //subject: string;
 }
