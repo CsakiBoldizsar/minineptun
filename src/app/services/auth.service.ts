@@ -16,6 +16,7 @@ export const httpOptions = {
 export class AuthService {
 
   user: User = null;
+  token: string;
   redirectUrl: string;
   private usersUrl = 'http://localhost:8080/login';
 
@@ -26,7 +27,7 @@ export class AuthService {
   //regisztracio
     async register(username: string, password: string,role:string){
       try {
-        const user = await this.http.post<HttpResponse<Object>>(
+        await this.http.post(
           'http://localhost:8080/users/register',
           {
             "username":username,
@@ -34,9 +35,8 @@ export class AuthService {
             "role":role
           },
           httpOptions
-        ).toPromise().then(response=>{
-          console.log(response.headers)
-        });
+         
+        ).toPromise();
         console.log('hej')
         //this.user = user;
         return Promise.resolve(true);
@@ -50,15 +50,21 @@ export class AuthService {
   async login(username: string, password: string): Promise<boolean> {
 
     try {
-      const user = await this.http.post<User>(
+      await this.http.post<HttpResponse<Object>>(
         'http://localhost:8080/login',
         {
           "username":username,
           "password":password
         },
-        httpOptions
-      ).toPromise();
-      this.user = user;
+        { observe: 'response' }
+      ).subscribe(res=>{
+          this.user = new User(username,password,res.headers.get("role"))
+          this.token = res.headers.get("authorization")
+          console.log(res.headers.get("role"))
+          console.log(res.headers.get("authorization"))
+      });
+      
+      //this.user = user;
       return Promise.resolve(true);
     } catch (e) {
       console.log('hiba', e);
