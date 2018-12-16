@@ -11,8 +11,11 @@
         <div class="btn-holder">
           <button type = "button" class = "btn btn-primary" (click) = "showDetails(course)">Több infó</button>
         </div>
-        <div class="btn-holder">
+        <div class="btn-holder" *ngIf = "authService.user.role == 'ROLE_STUDENT' ">
           <button type="button" class="btn btn-danger" (click) = 'removeCourse(course)'>Tárgy leadása</button>
+        </div>
+        <div class="btn-holder" *ngIf = "authService.user.role == 'ROLE_LECTURER' ">
+          <button type="button" class="btn btn-danger" routerLink = "">Kurzus módodítása</button>
         </div>
       </div>
     </div>

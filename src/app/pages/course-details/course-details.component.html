@@ -1,6 +1,7 @@
 <section id="couser-details">
   <div class="container">
     <h1>Tárgy adatok:</h1>
+    {{course | json}}
     <div class="details">
       <ul class="list-group">
         <li class="list-group-item">A tárgy id-ja: {{course.id}}</li>
@@ -10,12 +11,13 @@
           <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"> Hallgatók
             <span class="caret"></span></button>
-            <ul class="dropdown-menu">
+            <!--<ul class="dropdown-menu">
               <li *ngFor = 'let student of students'>{{student.name}}</li>
-            </ul>
+            </ul>-->
           </div>
         </li>
-        <li class="list-group-item">A kurzust oktató tanár: {{course.lecturer}}</li>
+        <li class="list-group-item" *ngIf = "course.lecturer">A kurzust oktató tanár: {{course.lecturer}}</li>
+        <li class="list-group-item">A kurzus tárgya: {{course.subject.name}}</li>
       </ul>
     </div>
   </div>
