@@ -25,7 +25,7 @@ export class NewCourseComponent implements OnInit {
       location: ['', Validators.required],
       time: ['', Validators.required],
       type: ['',Validators.required],
-      lecturerID: ['',Validators.required]
+      lecturer: ['',Validators.required]
     });
     const lecturers = await this.lecturerService.getLecturers();
     this.lecturers = lecturers;
@@ -34,7 +34,7 @@ export class NewCourseComponent implements OnInit {
 
   get f() { return this.registerForm.controls; }
 
-  onSubmit() {
+  async onSubmit() {
     this.submitted = true;
 
 
@@ -43,12 +43,11 @@ export class NewCourseComponent implements OnInit {
       return;
     }
 
-    //console.log(this.registerForm.value.lecturerID.id + " " + this.registerForm.value.lecturerID.name);
-    //this.courseService.createCourse(this.registerForm.value);
+    console.log(this.registerForm.value.lecturer);
+    const lecturer = await this.lecturerService.getLecturerByName(this.registerForm.value.lecturer);
+    const result = await this.courseService.createCourse(this.registerForm.value,lecturer);
     // elkuldeni a cuccokat
     this.router.navigate(['/courselist']);
-
-
   }
 
 }
