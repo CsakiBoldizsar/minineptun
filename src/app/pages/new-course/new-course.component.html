@@ -34,8 +34,8 @@
               <select name="lecturer" id="lecturer" formControlName= "lecturer">
                <option *ngFor = "let lecturer of lecturers" value="{{lecturer.name}}">{{lecturer.name}}</option>
               </select>
-              <div *ngIf="submitted && f.lecturerID.errors" class="invalid-feedback">
-                <div *ngIf="f.lecturerID.errors.required">Kérem válasszon egyet az oktatók közül</div>
+              <div *ngIf="submitted && f.lecturer.errors" class="invalid-feedback">
+                <div *ngIf="f.lecturer.errors.required">Kérem válasszon egyet az oktatók közül</div>
               </div>
             </div>
             <div class="btn-holder">
