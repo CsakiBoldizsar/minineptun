@@ -1,3 +1,44 @@
-<p>
-  change works!
-</p>
+<section id="change">
+  <div class="container-fluid">
+    {{course|json}}
+    <div class="row">
+      <div class="register-box">
+        <div class="title">Kurzus módosítása</div>
+        <div class="form-holder">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form">
+              <label for="location">Helyszín:</label><br>
+              <input type="text" id="location" autocomplete="off" formControlName = "location" value = "{{course.location}}" >
+              <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+                <div *ngIf="f.location.errors.required">Kérem adja meg a helyszínt</div>
+              </div>
+            </div>
+            <div class="form">
+              <label for="time">Időpont</label><br>
+              <input type="text" id="time" autocomplete="off" formControlName = "time">
+              <div *ngIf="submitted && f.time.errors" class="invalid-feedback">
+                <div *ngIf="f.time.errors.required">Kérem adja meg az időpontot</div>
+              </div>
+            </div>
+            <div class="form">
+              <label for="type">Milyen típusú:</label><br>
+              <select name="type" id="type" formControlName= "type">
+                <option value="LECTURE">Előadás</option>
+                <option value="PRACTICE">Gyakorlat</option>
+              </select>
+              <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                <div *ngIf="f.type.errors.required">Kérem válasszon egyet a lehetőségek közül</div>
+              </div>
+            </div>
+            <div class="btn-holder">
+              <input type="submit" value="Módosítás">
+            </div>
+            <div class="btn-holder">
+              <input type="submit" value="Mégse" routerLink ="">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
