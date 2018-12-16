@@ -39,9 +39,7 @@ export class CourseService {
   }
 
   updateCourse(course: Course): Promise<Course> {
-    return this.http.put<Course>(`${this.courseUrl}/${course.id}`,{
-      course: course
-    },httpOptions).toPromise();
+    return this.http.put<Course>(`${this.courseUrl}/${course.id}`,course,httpOptions).toPromise();
   }
 
   deleteCourse(id: number): Promise<Course> {
