@@ -14,21 +14,25 @@ export class ChangeComponent implements OnInit {
   course: Course;
   registerForm: FormGroup;
   submitted = false;
+  loc: string;
+  time: string;
+  type: string;
 
   constructor(private route: ActivatedRoute,private courseService: CourseService,private formBuilder: FormBuilder,private router: Router,) { }
 
   async ngOnInit() {
     this.registerForm = this.formBuilder.group({
-      location: [],
-      time: [],
-      type: [],
+      location: ['',Validators.required],
+      time: ['',Validators.required],
+      type: ['',Validators.required],
     });
     const id = parseInt(this.route.snapshot.paramMap.get('id'));
     console.log(id);
     this.course = await this.courseService.getCourse(id);
-    console.log(this.course.location);
-
-    
+    //beallitani ezt a hulyeseget
+    this.registerForm.controls['location'].setValue(this.course.location);
+    this.registerForm.controls['time'].setValue(this.course.time);
+    this.registerForm.controls['type'].setValue(this.course.type);
   }
   get f() { return this.registerForm.controls; }
 
@@ -41,10 +45,14 @@ export class ChangeComponent implements OnInit {
       return;
     }
 
-    console.log(this.registerForm.value);
-    //this.courseService.createCourse(this.registerForm.value);
+    
+    this.course.location = this.registerForm.value.location;
+    this.course.type = this.registerForm.value.type;
+    this.course.time = this.registerForm.value.time;
+    console.log(this.course);
+    this.courseService.updateCourse(this.course);
     // elkuldeni a cuccokat
-    //this.router.navigate(['/courselist']);
+    this.router.navigate(['/mycourses']);
 
 
   }

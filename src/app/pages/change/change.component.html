@@ -1,6 +1,6 @@
 <section id="change">
   <div class="container-fluid">
-    {{course|json}}
+    {{course | json}}
     <div class="row">
       <div class="register-box">
         <div class="title">Kurzus módosítása</div>
@@ -8,7 +8,7 @@
           <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="form">
               <label for="location">Helyszín:</label><br>
-              <input type="text" id="location" autocomplete="off" formControlName = "location">
+              <input type="text" id="location" autocomplete="off" formControlName = "location" value = "loc">
               <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
                 <div *ngIf="f.location.errors.required">Kérem adja meg a helyszínt</div>
               </div>

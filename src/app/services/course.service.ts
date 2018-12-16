@@ -40,7 +40,7 @@ export class CourseService {
 
   updateCourse(course: Course): Promise<Course> {
     return this.http.put<Course>(`${this.courseUrl}/${course.id}`,{
-      //az uj course adatok
+      course: course
     },httpOptions).toPromise();
   }
 
