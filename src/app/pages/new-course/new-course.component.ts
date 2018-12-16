@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Course } from 'src/app/classes/course';
+import { CourseService } from 'src/app/services/course.service';
 
 @Component({
   selector: 'app-new-course',
@@ -14,7 +15,7 @@ export class NewCourseComponent implements OnInit {
   submitted = false;
   passwordMatch = false;
 
-  constructor(private formBuilder: FormBuilder,private router: Router) { }
+  constructor(private formBuilder: FormBuilder,private router: Router,private courseService: CourseService) { }
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
@@ -37,6 +38,7 @@ export class NewCourseComponent implements OnInit {
     }
 
     console.log(this.registerForm.value);
+    //courseService.
     // elkuldeni a cuccokat
     //this.router.navigate(['/courselist']);
 
