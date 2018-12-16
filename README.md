@@ -20,7 +20,7 @@ Egy funckió folyamatának leírása - regisztráció:
 
 Felhasználói dokumentáció:
 
-    Regisztráció, bejelentkezés:
+    # Regisztráció, bejelentkezés:
   
     A főoldalon kezdetben egy üdvözlőképernyő jelenik meg, 
     ahol lehetőség van a regisztrációra vagy a bejelentkezésre.
@@ -29,12 +29,36 @@ Felhasználói dokumentáció:
     A jelszót kétszer kell megadni, legalább 6 karakter hosszú jelszót kell megadni.
     Sikeres regisztráció esetén átirányításra kerül a bejelentkezési űrlaphoz. 
     A felhasználónév és a jelszó megadása után a Belépés gombra kattintva tud bejelentkezni.
+    Ekkor átirányításra kerül a főoldalra, ahol a kijelentkezés gombot találja. A további
+    funkciók eléréséhez kattintson a menüpontokra. A főoldalra a Home menüponttal térhet vissza.
+   
+    # Kurzus felvétele/leadása:
+     
+    A hallgató jogkörrel rendelkező felhasználóknak lehetőségük van kurzusok felvételére, leadására.
+    Új kurzus felvételéhez kattintson a kurzus felvétele menüpontra, ekkor megjelenik az összes kurzus listája.
+    Ha többet szeretne megtudni egy adott kurzusról, a több info gombra kattintva megtekintheti a kurzus részletes leírását.
+    Ezután válassza ki a megfelelő kurzust és kattintson a felvétel gombra. Sikeres kurzusfelvétel esetén átirányításra
+    kerül a felvett kurzusok oldalra. Ha leadni szeretne egy kurzust, kattintson a felvett kurzusok menüpontra. Válassza ki
+    a megfelelő kurzust, és kattintson a leadás gombra. Sikeres kurzusleadás után a lista frissül.
     
-    Saját kurzusok megtekintése:
+    # Saját kurzusok megtekintése:
     
-    Kurzus hozzáadása:
+    A hallgató és oktató jogkörrel rendelkező felhasználók megtekinthetik saját kurzusaikat. Saját kurzusainak
+    megtekintéséhez kattintson a felvett kurzusok menüpontra. Ha többet szeretne megtudni egy adott kurzusról,
+    a több info gombra kattintva megtekintheti a kurzus részletes leírását.
     
-    Kurzus módosítása:
+    # Kurzus módosítása:
     
-    Kurzus felvétele:
+    Az oktató jogkörrel rendelkező felhasználóknak lehetőségük van a kurzusaik adatainak módosítására.
+    Kurzus adatainak módosításához először kattintson a saját kurzusok menüpontra. Ezután válassza ki
+    a megfelelő kurzust, majd kattintson a módosítás gombra. Töltse ki a megjelenő űrlapot, és nyomja meg
+    a küldés gombot.
+    
+    # Kurzus hozzáadása/törlése:
+    
+    Az admin jogkörrel rendelkező felhasználóknak lehetőségük van kurzusokat létrehozni és törölni.
+    Ha kurzust szeretne létrehozni, kattintson a kurzus létrehozása menüpontra. Töltse ki az
+    űrlapot a kurzus létrehozásához, és nyomja meg a küldés gombot.
+    Kurzus törléséhez nyomja meg a kurzusok menüpontot, válassza ki a megfelelő kurzust és kattintson
+    a kurzus törlése gombra.
     
