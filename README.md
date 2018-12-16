@@ -20,7 +20,7 @@ Egy funckió folyamatának leírása - regisztráció:
 
 # Usecase diagram
 
-![alttext](https://github.com/CsakiBoldizsar/minineptun/blob/master/usecase.jpg)
+![alttext](https://github.com/CsakiBoldizsar/minineptun/blob/master/diagram.jpg)
 
 Felhasználói dokumentáció:
 
