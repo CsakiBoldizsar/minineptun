@@ -70,12 +70,18 @@ const routes: Routes = [
   {
     path: 'newsubject',
     component: NewSubjectComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data : {
+      roles: ['ROLE_ADMIN']
+    }
   },
   {
     path: 'changeSubject/:id',
     component: ChangeSubjectComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data : {
+      roles: ['ROLE_ADMIN']
+    }
   },
   {
     path: '**',
