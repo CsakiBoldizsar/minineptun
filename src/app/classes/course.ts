@@ -7,9 +7,9 @@ export class Course {
     location: string;
     time: string;
     type: string;
-    students: string[];
-    //students: Student[];
-    lecturer: string;
-    //lecturer: Lecturer;
+    //students: string[];
+    students: Student[];
+    //lecturer: string;
+    lecturer: Lecturer;
     subject: Subject;
 }

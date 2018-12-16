@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Course } from 'src/app/classes/course';
+import { CourseService } from 'src/app/services/course.service';
+import { Student } from 'src/app/classes/student';
 
 @Component({
   selector: 'app-course-details',
@@ -9,11 +12,14 @@ import { ActivatedRoute } from '@angular/router';
 export class CourseDetailsComponent implements OnInit {
 
   public id: number;
-  constructor(private route: ActivatedRoute) { }
+  course: Course = new Course();
+  students: Student[];
+  constructor(private route: ActivatedRoute,private courseService: CourseService) { }
 
-  ngOnInit() {
-    let id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.id = id;
+  async ngOnInit() {
+    const id = parseInt(this.route.snapshot.paramMap.get('id'));
+    this.course = await this.courseService.getCourse(id);
+    this.students = this.course.students;
   }
 
 }
