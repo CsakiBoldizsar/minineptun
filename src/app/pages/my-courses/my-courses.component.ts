@@ -26,9 +26,9 @@ export class MyCoursesComponent implements OnInit {
         console.log(student.courses)
         break;
       case "ROLE_LECTURER":
-        const lecturer = await this.lecturerService.getLecturerByName(this.authService.user.username);
-        this.courses = lecturer.courses;
-        console.log(lecturer.courses)
+        const courses = await this.courseService.getCoursesLecturer(this.authService.user.username);
+        this.courses = courses;
+        console.log(courses)
         break;
       default:
         const allcourses = await this.courseService.getCourses();
