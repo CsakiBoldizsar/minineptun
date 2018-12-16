@@ -4,6 +4,8 @@ import { AuthService } from '../../services/auth.service';
 import { Course } from '../../classes/course';
 import { Router } from '@angular/router';
 import { Student } from '../../classes/student';
+import { StudentService } from 'src/app/services/student.service';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
 
 @Component({
   selector: 'app-course-list',
@@ -14,7 +16,8 @@ export class CourseListComponent implements OnInit {
   
   courses: Course[] ;
 
-  constructor(private router: Router,private authService: AuthService, private courseService: CourseService) { }
+  constructor(private router: Router,private authService: AuthService, private courseService: CourseService,
+    private studentService: StudentService) { }
 
   async ngOnInit() {
       //ha auth -ban a role lecturer vagy student
@@ -29,8 +32,10 @@ export class CourseListComponent implements OnInit {
     this.router.navigate(['/coursedetails',course.id]);
   }
 
-  addCourse(course: Course): void{
-    console.log("kappa");
+  async addCourse(course: Course) {
+    const result = await this.studentService.pickUpCourse(this.authService.user.username,course.id)
+    console.log(result)
+    this.router.navigate(['/mycourses']);
   }
 
 }
