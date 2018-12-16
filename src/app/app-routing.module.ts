@@ -11,7 +11,6 @@ import { CourseDetailsComponent } from './pages/course-details/course-details.co
 import { NewCourseComponent } from './pages/new-course/new-course.component';
 import { SubjectListComponent } from './pages/subject-list/subject-list.component';
 import { AuthGuard } from './auth.guard';
-import { CanActivate } from '@angular/router/src/utils/preactivation';
 
 const routes: Routes = [
   {
@@ -38,15 +37,18 @@ const routes: Routes = [
   },
   {
     path: 'newcourse',
-    component: NewCourseComponent
+    component: NewCourseComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'coursedetails/:id',
-    component: CourseDetailsComponent
+    component: CourseDetailsComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'subjects',
-    component: SubjectListComponent
+    component: SubjectListComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: '**',
