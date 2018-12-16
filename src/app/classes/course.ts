@@ -1,5 +1,6 @@
 import { Lecturer } from './lecturer';
 import { Student } from './student';
+import { Subject } from './subject';
 
 export class Course {
     id: number;
@@ -10,5 +11,5 @@ export class Course {
     //students: Student[];
     lecturer: string;
     //lecturer: Lecturer;
-    //subject: string;
+    subject: Subject;
 }

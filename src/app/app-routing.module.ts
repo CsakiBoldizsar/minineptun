@@ -7,13 +7,11 @@ import { RegisterComponent } from './pages/register/register.component'
 import { PagesnotfoundComponent } from './pages/pagesnotfound/pagesnotfound.component';
 import { CourseListComponent } from './pages/course-list/course-list.component';
 import { MyCoursesComponent } from './pages/my-courses/my-courses.component';
-<<<<<<< HEAD
 import { CourseDetailsComponent } from './pages/course-details/course-details.component';
 import { NewCourseComponent } from './pages/new-course/new-course.component';
 import { SubjectListComponent } from './pages/subject-list/subject-list.component';
-=======
 import { AuthGuard } from './auth.guard';
->>>>>>> d3cbcc15e2ce5dfe76ebf6bcf76d8d1dea880ee6
+import { CanActivate } from '@angular/router/src/utils/preactivation';
 
 const routes: Routes = [
   {

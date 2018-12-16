@@ -1,4 +1,4 @@
-<section id="home-screen">
+<section *ngIf="!loggedIn" id="home-screen">
   <div class="container-fluid">
     <div class="row">
       <div class="home-box">
@@ -23,3 +23,23 @@
     </div>
   </div>
 </section>
+<section *ngIf="loggedIn" id="home-screen">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="home-box">
+        <div class="title">Home screen</div>
+        <div class="subtitle">Kezdőoldal</div>
+        <div class="options">
+          <div class="col-sm-12 ">
+            <div class="wrapper">
+                <div class="info">Kijelentkezéshez kattints ide</div>
+                <div class="link" routerLink = "/login">Kijelentkezés</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+

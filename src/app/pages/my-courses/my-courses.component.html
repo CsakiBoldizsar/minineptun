@@ -5,8 +5,9 @@
     </div>
     <div class="list">
       <div *ngFor = 'let course of courses' class ="course">
-        <div>A tárgy id-ja: </div>
-        <div class="subject-name">A tárgy neve: </div>
+        <div>A kurzus id-ja: {{course.id}} </div>
+        <div>A kurzus helye: {{course.location}} </div>
+        <div class="subject-name">A kurzus tantárgya {{course.subject.name}}</div>
         <div class="btn-holder">
           <button type = "button" class = "btn btn-primary" (click) = "showDetails(course)">Több infó</button>
         </div>

@@ -20,6 +20,10 @@ export class StudentService {
     return this.http.get<Student>(`${this.studentUrl}/${id}`, httpOptions).toPromise();
   }
 
+  getStudentByName(name: string): Promise<Student> {
+    return this.http.get<Student>(`${this.studentUrl}/by-name/${name}`, httpOptions).toPromise();
+  }
+
   createStudent(student: Student): Promise<Student>{
     return this.http.post<Student>(`${this.studentUrl}`,{
       // hogyan kuldjuk az adatokat

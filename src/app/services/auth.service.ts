@@ -5,7 +5,7 @@ import { User } from '../classes/user';
 export const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin':'*'
+    'Authorization': '',
   })
 };
 
@@ -16,9 +16,9 @@ export const httpOptions = {
 export class AuthService {
 
   user: User = null;
-  token: string;
+  token: string = "";
   redirectUrl: string;
-  private usersUrl = 'http://localhost:8080/login';
+  private usersUrl = 'http://localhost:8080/users';
 
   constructor(
     private http: HttpClient
@@ -48,23 +48,21 @@ export class AuthService {
 
   //bejelenkeztetes
   async login(username: string, password: string): Promise<boolean> {
-
+    const token = btoa(`${username}:${password}`);
+    httpOptions.headers =
+      httpOptions.headers.set(
+        'Authorization',
+        `Basic ${token}`
+      );
     try {
-      await this.http.post<HttpResponse<Object>>(
-        'http://localhost:8080/login',
+      const user = await this.http.post<User>(
+        `${this.usersUrl}/login`,
         {
-          "username":username,
-          "password":password
+
         },
-        { observe: 'response' }
-      ).subscribe(res=>{
-          this.user = new User(username,password,res.headers.get("role"))
-          this.token = res.headers.get("authorization")
-          console.log(res.headers.get("role"))
-          console.log(res.headers.get("authorization"))
-      });
-      
-      //this.user = user;
+        httpOptions
+      ).toPromise();
+      this.user = user;
       return Promise.resolve(true);
     } catch (e) {
       console.log('hiba', e);

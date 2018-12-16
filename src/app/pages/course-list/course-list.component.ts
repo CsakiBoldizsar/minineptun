@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { CourseService} from '../../services/course.service';
+import { AuthService } from '../../services/auth.service';
 import { Course } from '../../classes/course';
 import { Router } from '@angular/router';
+import { Student } from '../../classes/student';
 
 @Component({
   selector: 'app-course-list',
@@ -10,18 +12,17 @@ import { Router } from '@angular/router';
 })
 export class CourseListComponent implements OnInit {
   
-  courses: Course[] = [
-    {id: 1, location: 'kappa', time: '11:50',type: 'yeah', students: ['Krisz','Boldi'], lecturer: 'Loczi'},
-    {id: 2, location: 'kappa2', time: '12:00',type: 'prog', students: ['Krisz','Boldi','Gergely'], lecturer: 'Klettner Peter'},
-    {id: 3, location: 'kappa2', time: '12:00',type: 'prog', students: ['Krisz','Boldi','Gergely'], lecturer: 'Klettner Peter'},
-    {id: 4, location: 'kappa2', time: '12:00',type: 'prog', students: ['Krisz','Boldi','Gergely'], lecturer: 'Klettner Peter'},
-    {id: 5, location: 'kappa2', time: '12:00',type: 'prog', students: ['Krisz','Boldi','Gergely'], lecturer: 'Klettner Peter'},
-    {id: 6, location: 'kappa2', time: '12:00',type: 'prog', students: ['Krisz','Boldi','Gergely'], lecturer: 'Klettner Peter'}
-  ];
+  courses: Course[] ;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private authService: AuthService, private courseService: CourseService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+      //ha auth -ban a role lecturer vagy student
+      //lekérdezni a getbyname el, kiírni a kurzusait
+      //ha admin, akkor az összes kurzust lekérdezni
+      //service ekben lehet hogy async await fog kelleni
+      const allcourses = await this.courseService.getCourses();
+      this.courses = allcourses
   }
 
   showDetails(course: Course): void{
