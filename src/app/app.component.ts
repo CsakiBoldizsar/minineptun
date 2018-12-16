@@ -14,7 +14,5 @@ export class AppComponent {
   ) {
 
   }
-  
-  show = this.authService.isLoggedIn();
   title = 'mini-neptun-frontend';
 }

@@ -1,4 +1,4 @@
-<section *ngIf="!loggedIn" id="home-screen">
+<section *ngIf="!authService.isLoggedIn()" id="home-screen">
   <div class="container-fluid">
     <div class="row">
       <div class="home-box">
@@ -23,7 +23,7 @@
     </div>
   </div>
 </section>
-<section *ngIf="loggedIn" id="home-screen">
+<section *ngIf="authService.isLoggedIn()" id="home-screen">
   <div class="container-fluid">
     <div class="row">
       <div class="home-box">
@@ -33,7 +33,7 @@
           <div class="col-sm-12 ">
             <div class="wrapper">
                 <div class="info">Kijelentkezéshez kattints ide</div>
-                <div class="link" routerLink = "/login">Kijelentkezés</div>
+                <div class="link" routerLink = "/login" (click) = "authService.logout()">Kijelentkezés</div>
             </div>
           </div>
         </div>
