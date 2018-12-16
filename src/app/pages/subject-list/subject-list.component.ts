@@ -22,7 +22,7 @@ export class SubjectListComponent implements OnInit {
 
 
   async delete(subject: Subject){
-    const result = this.subjectService.deleteSubject(subject.id);
+    const result = await this.subjectService.deleteSubject(subject.id);
     const allsubjects = await this.subjectService.getSubjects();
     this.subjects = allsubjects;
   }
