@@ -25,7 +25,7 @@ export class CourseService {
     return this.http.get<Course[]>(`${this.courseUrl}/by-lecturer/${name}`,httpOptions).toPromise();
   }
 
-  createCourse(data,lecturer): Promise<Course> {
+  createCourse(data,lecturer,subject): Promise<Course> {
     console.log(data);
     return this.http.post<Course>(`${this.courseUrl}`,{
       location: data.location,
@@ -33,7 +33,7 @@ export class CourseService {
       type: data.type,
       lecturer: lecturer,
       students: [],
-      subject: null
+      subject: subject
       //hogyan kuldjuk az adatokat
     },httpOptions).toPromise();
   }

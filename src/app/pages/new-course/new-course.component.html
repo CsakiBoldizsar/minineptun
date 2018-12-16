@@ -38,6 +38,15 @@
                 <div *ngIf="f.lecturer.errors.required">Kérem válasszon egyet az oktatók közül</div>
               </div>
             </div>
+            <div class="form">
+                <label for="subject">Melyik tárgyhoz tartozik:</label><br>
+                <select name="subject" id="subject" formControlName= "subject">
+                 <option *ngFor = "let subject of subjects" value="{{subject.id}}">{{subject.name}}</option>
+                </select>
+                <div *ngIf="submitted && f.subject.errors" class="invalid-feedback">
+                  <div *ngIf="f.subject.errors.required">Kérem válasszon egyet a tárgyak közül</div>
+                </div>
+              </div>
             <div class="btn-holder">
               <input type="submit" value="Létrehozás">
             </div>
