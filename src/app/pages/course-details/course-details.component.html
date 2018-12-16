@@ -1,7 +1,6 @@
 <section id="couser-details">
   <div class="container">
     <h1>Tárgy adatok:</h1>
-    {{course | json}}
     <div class="details">
       <ul class="list-group">
         <li class="list-group-item">A tárgy id-ja: {{course.id}}</li>
@@ -17,7 +16,7 @@
           </div>
         </li>-->
         <li class="list-group-item" *ngIf = "course.lecturer">A kurzust oktató tanár: {{course.lecturer.name}}</li>
-        <li class="list-group-item">A kurzus tárgya: {{course.subject.name}}</li>
+        <li class="list-group-item" *ngIf = "course.subject">A kurzus tárgya: {{course.subject.name}}</li>
       </ul>
     </div>
   </div>

@@ -38,4 +38,9 @@ export class CourseListComponent implements OnInit {
     this.router.navigate(['/mycourses']);
   }
 
+  async delete(course: Course){
+    const result = await this.courseService.deleteCourse(course.id);
+    this.router.navigate(["/courselist"]);
+  }
+
 }

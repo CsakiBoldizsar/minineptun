@@ -8,7 +8,7 @@
           <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="form">
               <label for="location">Helyszín:</label><br>
-              <input type="text" id="location" autocomplete="off" formControlName = "location" value = "{{course.location}}" >
+              <input type="text" id="location" autocomplete="off" formControlName = "location">
               <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
                 <div *ngIf="f.location.errors.required">Kérem adja meg a helyszínt</div>
               </div>
@@ -33,10 +33,10 @@
             <div class="btn-holder">
               <input type="submit" value="Módosítás">
             </div>
-            <div class="btn-holder">
-              <input type="submit" value="Mégse" routerLink ="">
-            </div>
           </form>
+          <div class="btn-holder">
+              <input type="button" value="Mégse" routerLink ="/mycourses">
+            </div>
         </div>
       </div>
     </div>

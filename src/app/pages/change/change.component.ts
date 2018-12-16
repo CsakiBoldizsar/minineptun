@@ -26,7 +26,7 @@ export class ChangeComponent implements OnInit {
     const id = parseInt(this.route.snapshot.paramMap.get('id'));
     console.log(id);
     this.course = await this.courseService.getCourse(id);
-    console.log(this.course);
+    console.log(this.course.location);
 
     
   }
@@ -41,7 +41,7 @@ export class ChangeComponent implements OnInit {
       return;
     }
 
-    //console.log(this.registerForm.value);
+    console.log(this.registerForm.value);
     //this.courseService.createCourse(this.registerForm.value);
     // elkuldeni a cuccokat
     //this.router.navigate(['/courselist']);
