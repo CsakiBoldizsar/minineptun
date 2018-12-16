@@ -37,8 +37,24 @@ export class MyCoursesComponent implements OnInit {
     }
   }
 
-  removeCourse(course: Course): void{
-    console.log(course.id)
+  async removeCourse(course: Course) {
+    const result = await this.studentService.leaveCourse(this.authService.user.username,course.id)
+    switch(this.authService.user.role){
+      case "ROLE_STUDENT":
+        const student = await this.studentService.getStudentByName(this.authService.user.username);
+        this.courses = student.courses;
+        console.log(student.courses)
+        break;
+      case "ROLE_LECTURER":
+        const lecturer = await this.lecturerService.getLecturerByName(this.authService.user.username);
+        this.courses = lecturer.courses;
+        console.log(lecturer.courses)
+        break;
+      default:
+        const allcourses = await this.courseService.getCourses();
+        this.courses = allcourses
+        break;
+    }
   }
 
   showDetails(course: Course): void{
