@@ -24,6 +24,7 @@ export class CourseListComponent implements OnInit {
       //lekérdezni a getbyname el, kiírni a kurzusait
       //ha admin, akkor az összes kurzust lekérdezni
       //service ekben lehet hogy async await fog kelleni
+      
       const allcourses = await this.courseService.getCourses();
       this.courses = allcourses
   }
