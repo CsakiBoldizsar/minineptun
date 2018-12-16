@@ -16,6 +16,7 @@ import { CourseListComponent } from './pages/course-list/course-list.component';
 import { CourseDetailsComponent } from './pages/course-details/course-details.component';
 import { NewCourseComponent } from './pages/new-course/new-course.component';
 import { SubjectListComponent } from './pages/subject-list/subject-list.component';
+import { ChangeComponent } from './pages/change/change.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SubjectListComponent } from './pages/subject-list/subject-list.componen
     CourseListComponent,
     CourseDetailsComponent,
     NewCourseComponent,
-    SubjectListComponent
+    SubjectListComponent,
+    ChangeComponent
   ],
   imports: [
     BrowserModule,

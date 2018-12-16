@@ -47,7 +47,8 @@ export class MyCoursesComponent implements OnInit {
         break;
       case "ROLE_LECTURER":
         const lecturer = await this.lecturerService.getLecturerByName(this.authService.user.username);
-        this.courses = lecturer.courses;
+        const lecCourses = await this.courseService.getCoursesLecturer(this.authService.user.username);
+        this.courses = lecCourses;
         console.log(lecturer.courses)
         break;
       default:
@@ -59,6 +60,9 @@ export class MyCoursesComponent implements OnInit {
 
   showDetails(course: Course): void{
     this.router.navigate(['/coursedetails',course.id]);
+  }
+  goToChange(course: Course): void{
+    this.router.navigate(['/change',course.id]);
   }
 
 }

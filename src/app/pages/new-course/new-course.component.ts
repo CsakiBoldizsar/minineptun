@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Course } from 'src/app/classes/course';
 import { CourseService } from 'src/app/services/course.service';
+import { LecturerService } from 'src/app/services/lecturer.service';
+import { Lecturer } from 'src/app/classes/lecturer';
 
 @Component({
   selector: 'app-new-course',
@@ -14,16 +16,20 @@ export class NewCourseComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
   passwordMatch = false;
+  lecturers: Lecturer[];
 
-  constructor(private formBuilder: FormBuilder,private router: Router,private courseService: CourseService) { }
+  constructor(private formBuilder: FormBuilder,private router: Router,private courseService: CourseService,private lecturerService: LecturerService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.registerForm = this.formBuilder.group({
       location: ['', Validators.required],
       time: ['', Validators.required],
       type: ['',Validators.required],
       lecturerID: ['',Validators.required]
     });
+    const lecturers = await this.lecturerService.getLecturers();
+    this.lecturers = lecturers;
+
   }
 
   get f() { return this.registerForm.controls; }
@@ -37,10 +43,10 @@ export class NewCourseComponent implements OnInit {
       return;
     }
 
-    console.log(this.registerForm.value);
-    //courseService.
+    //console.log(this.registerForm.value.lecturerID.id + " " + this.registerForm.value.lecturerID.name);
+    //this.courseService.createCourse(this.registerForm.value);
     // elkuldeni a cuccokat
-    //this.router.navigate(['/courselist']);
+    this.router.navigate(['/courselist']);
 
 
   }

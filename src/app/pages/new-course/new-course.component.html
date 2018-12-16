@@ -22,8 +22,8 @@
             <div class="form">
               <label for="type">Milyen típusú:</label><br>
               <select name="type" id="type" formControlName= "type">
-                <option value="lecture">Előadás</option>
-                <option value="practise" selected>Gyakorlat</option>
+                <option value="LECTURE">Előadás</option>
+                <option value="PRACTICE" selected>Gyakorlat</option>
               </select>
               <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
                 <div *ngIf="f.type.errors.required">Kérem válasszon egyet a lehetőségek közül</div>
@@ -32,8 +32,7 @@
             <div class="form">
               <label for="lecturer">Ki az oktató:</label><br>
               <select name="lecturer" id="lecturer" formControlName= "lecturerID">
-                <option value="1">Kovacs Jozses</option>
-                <option value="2" selected>Kappa Pride</option>
+               <option *ngFor = "let lecturer of lecturers" value="{{lecturer}}">{{lecturer.name}}</option>
               </select>
               <div *ngIf="submitted && f.lecturerID.errors" class="invalid-feedback">
                 <div *ngIf="f.lecturerID.errors.required">Kérem válasszon egyet az oktatók közül</div>

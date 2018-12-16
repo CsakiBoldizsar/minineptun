@@ -11,6 +11,7 @@ import { CourseDetailsComponent } from './pages/course-details/course-details.co
 import { NewCourseComponent } from './pages/new-course/new-course.component';
 import { SubjectListComponent } from './pages/subject-list/subject-list.component';
 import { AuthGuard } from './auth.guard';
+import { ChangeComponent } from './pages/change/change.component';
 
 const routes: Routes = [
   {
@@ -48,6 +49,11 @@ const routes: Routes = [
   {
     path: 'subjects',
     component: SubjectListComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'change/:id',
+    component: ChangeComponent,
     canActivate: [AuthGuard]
   },
   {
