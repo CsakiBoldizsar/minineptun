@@ -41,7 +41,10 @@ const routes: Routes = [
   {
     path: 'newcourse',
     component: NewCourseComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data : {
+      roles: ['ROLE_ADMIN']
+    }
   },
   {
     path: 'coursedetails/:id',
@@ -51,12 +54,18 @@ const routes: Routes = [
   {
     path: 'subjects',
     component: SubjectListComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data : {
+      roles: ['ROLE_ADMIN']
+    }
   },
   {
     path: 'change/:id',
     component: ChangeComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    data : {
+      roles: ['ROLE_LECTURER']
+    }
   },
   {
     path: 'newsubject',
