@@ -4,14 +4,20 @@
       <div class="login-box">
         <div class="title">Belépés</div>
         <div class="form-holder">
-          <form (submit)="loginUser($event)">
+          <form [formGroup] = "form" (submit)="loginUser($event)">
             <div class="form">
               <label for="name">Felhasználó név:</label><br>
-              <input type="text" id="name" autocomplete="off">
+              <input type="text" id="name" autocomplete="off" formControlName = "username">
+              <div *ngIf="submitted && f.username.errors" class="invalid-feedback" >
+                  <div *ngIf="f.username.errors.required">A felhasználó név kötelező</div>
+                </div>
             </div>
             <div class="form">
               <label for="password">Jelszó:</label><br>
-              <input type="password" id="password" autocomplete="off">
+              <input type="password" id="password" autocomplete="off" formControlName = "password">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">A jelszó kötelező</div>
+                </div>
             </div>
             <div class="btn-holder">
               <input type="submit" value="Bejelentkezés">
@@ -21,6 +27,9 @@
         <div class = "btn-holder">
           <input type="button" value ="Regisztráció" routerLink = "/register">
         </div>
+        <div *ngIf="message" class = "message">
+            {{ message }}
+          </div>
       </div>
     </div>
   </div>

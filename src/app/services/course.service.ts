@@ -26,7 +26,6 @@ export class CourseService {
   }
 
   createCourse(data,lecturer,subject): Promise<Course> {
-    console.log(data);
     return this.http.post<Course>(`${this.courseUrl}`,{
       location: data.location,
       time: data.time,
@@ -39,9 +38,7 @@ export class CourseService {
   }
 
   updateCourse(course: Course): Promise<Course> {
-    return this.http.put<Course>(`${this.courseUrl}/${course.id}`,{
-      course: course
-    },httpOptions).toPromise();
+    return this.http.put<Course>(`${this.courseUrl}/${course.id}`,course,httpOptions).toPromise();
   }
 
   deleteCourse(id: number): Promise<Course> {

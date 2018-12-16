@@ -18,7 +18,7 @@ export class ChangeComponent implements OnInit {
   time: string;
   type: string;
 
-  constructor(private route: ActivatedRoute,private courseService: CourseService,private formBuilder: FormBuilder,private router: Router,) { }
+  constructor(private route: ActivatedRoute,private courseService: CourseService,private formBuilder: FormBuilder,private router: Router) { }
 
   async ngOnInit() {
     this.registerForm = this.formBuilder.group({

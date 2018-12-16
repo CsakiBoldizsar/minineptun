@@ -1,0 +1,37 @@
+<section id="new-subject">
+    <div class="container-fluid">
+        <div class="row">
+          <div class="register-box">
+            <div class="title">Új tárgy létrehozása</div>
+            <div class="form-holder">
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                <div class="form">
+                  <label for="name">Neve:</label><br>
+                  <input type="text" id="name" autocomplete="off" formControlName = "name">
+                  <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">Kérem adja meg a nevet</div>
+                  </div>
+                </div>
+                <div class="form">
+                    <label for="category">Milyen kategóriában legyen:</label><br>
+                    <select name="category" id="category" formControlName= "category">
+                     <option value="COMPUTER_SCIENCE">Computer science</option>
+                     <option value="NATURAL_SCIENCE">Natural science</option>
+                     <option value="PROGRAMMING">Programming</option>
+                    </select>
+                    <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
+                      <div *ngIf="f.category.errors.required">Kérem válasszon egyet a lehetőségek közül</div>
+                    </div>
+                  </div>
+                <div class="btn-holder">
+                  <input type="submit" value="Létrehozás">
+                </div>
+              </form>
+              <div class="btn-holder">
+                  <input type="button" value="Vissza" routerLink = "/courselist">
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</section>

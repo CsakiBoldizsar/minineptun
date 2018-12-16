@@ -19,11 +19,19 @@ export class SubjectService {
   getSubject(id: number): Promise<Subject>{
     return this.http.get<Subject>(`${this.subjectUrl}/${id}`,httpOptions).toPromise();
   }
-  createSubject(subject: Subject): Promise<Subject>{
+  createSubject(data): Promise<Subject>{
     return this.http.post<Subject>(`${this.subjectUrl}`,{
-
+      name: data.name,
+      category: data.category,
+      lecturers: [],
+      courses: []
     },httpOptions).toPromise();
   }
+
+  updateSubject(subject: Subject): Promise<Subject>{
+    return this.http.put<Subject>(`${this.subjectUrl}/${subject.id}`,subject,httpOptions).toPromise();
+  }
+
   addLecturer(id: number): Promise<Subject>{
     return this.http.put<Subject>(`${this.subjectUrl}/${id}/add-lecturer`,{
       //

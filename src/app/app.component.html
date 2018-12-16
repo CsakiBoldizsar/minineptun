@@ -12,16 +12,16 @@
       </ul>
       <ul class="nav navbar-nav" *ngIf = "authService.user.role == 'ROLE_ADMIN' ">
         <li><a routerLink = "">Home</a></li>
-        <li><a routerLink = "/courselist">Kurzus felvétel</a></li>
+        <li><a routerLink = "/courselist">Kurzusok</a></li>
         <li><a routerLink = "/newcourse">Új kurzús létrehozása</a></li>
-        <li><a routerLink = "/subjects">Tárgyak listája</a></li>
+        <li><a routerLink = "/subjects">Tárgyak</a></li>
+        <li><a routerLink = "/newsubject">Tárgy létrehozás</a></li>
         <li><a routerLink = "/login" (click) = "authService.logout()">Logout</a></li>
       </ul>
       <ul class="nav navbar-nav" *ngIf = "authService.user.role == 'ROLE_LECTURER' ">
         <li><a routerLink = "">Home</a></li>
         <li><a routerLink = "/mycourses">Saját kurzusok</a></li>
-        <li><a routerLink = "/courselist">Kurzus felvétel</a></li>
-        <li><a routerLink = "/subjects">Tárgyak listája</a></li>
+        <li><a routerLink = "/courselist">Kurzus</a></li>
         <li><a routerLink = "/login" (click) = "authService.logout()">Logout</a></li>
       </ul>
     </div>
