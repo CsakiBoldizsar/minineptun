@@ -4,13 +4,26 @@
       <div class="navbar-header">
         <a class="navbar-brand" routerLink >Minineptun</a>
       </div>
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" *ngIf = "authService.user.role == 'ROLE_STUDENT' ">
         <li><a routerLink = "">Home</a></li>
         <li><a routerLink = "/mycourses">Felvett kurzusok</a></li>
         <li><a routerLink = "/courselist">Kurzus felvétel</a></li>
+        <li><a routerLink = "/login" (click) = "authService.logout()">Logout</a></li>
+      </ul>
+      <ul class="nav navbar-nav" *ngIf = "authService.user.role == 'ROLE_ADMIN' ">
+        <li><a routerLink = "">Home</a></li>
+        <li><a routerLink = "/courselist">Kurzus felvétel</a></li>
         <li><a routerLink = "/newcourse">Új kurzús létrehozása</a></li>
         <li><a routerLink = "/subjects">Tárgyak listája</a></li>
-        <li><a routerLink = "/login" (click) = "authService.logout()">Login</a></li>
+        <li><a routerLink = "/login" (click) = "authService.logout()">Logout</a></li>
+      </ul>
+      <ul class="nav navbar-nav" *ngIf = "authService.user.role == 'ROLE_LECTURER' ">
+        <li><a routerLink = "">Home</a></li>
+        <li><a routerLink = "/mycourses">Saját kurzusok</a></li>
+        <li><a routerLink = "/courselist">Kurzus felvétel</a></li>
+        <li><a routerLink = "/newcourse">Új kurzús létrehozása</a></li>
+        <li><a routerLink = "/subjects">Tárgyak listája</a></li>
+        <li><a routerLink = "/login" (click) = "authService.logout()">Logout</a></li>
       </ul>
     </div>
   </nav>

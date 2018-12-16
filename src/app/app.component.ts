@@ -8,11 +8,22 @@ import { VirtualTimeScheduler } from 'rxjs';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  
+
+  role: string;
+
   constructor(
     public authService: AuthService
   ) {
 
+  }
+
+  async ngOnInit() {
+    if (this.authService.user) {
+      this.role = this.authService.user.role;
+    }
+  }
+  hello(){
+    console.log(this.role);
   }
   title = 'mini-neptun-frontend';
 }
