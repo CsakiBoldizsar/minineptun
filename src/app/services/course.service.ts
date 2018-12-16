@@ -20,8 +20,12 @@ export class CourseService {
     return this.http.get<Course>(`${this.courseUrl}/${id}`,httpOptions).toPromise();
   }
 
-  createCourse(course: Course): Promise<Course> {
+  createCourse(data): Promise<Course> {
     return this.http.post<Course>(`${this.courseUrl}`,{
+      location: data.location,
+      time: data.time,
+      type: data.type,
+      //lecturer = data.lecturerID
       //hogyan kuldjuk az adatokat
     },httpOptions).toPromise();
   }

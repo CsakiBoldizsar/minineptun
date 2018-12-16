@@ -20,6 +20,10 @@ export class LecturerService {
     return this.http.get<Lecturer>(`${this.lecturerUrl}/${id}`,httpOptions).toPromise();
   }
 
+  getLecturerByName(name: string): Promise<Lecturer>{
+    return this.http.get<Lecturer>(`${this.lecturerUrl}/by-name/${name}`,httpOptions).toPromise();
+  }
+
   createLecturer(lecturer: Lecturer): Promise<Lecturer>{
     return this.http.post<Lecturer>(`${this.lecturerUrl}`,{
       

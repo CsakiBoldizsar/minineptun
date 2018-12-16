@@ -1,0 +1,50 @@
+<section id="new-course">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="register-box">
+        <div class="title">Új kurzus létrehozása</div>
+        <div class="form-holder">
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form">
+              <label for="location">Helyszín:</label><br>
+              <input type="text" id="location" autocomplete="off" formControlName = "location">
+              <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+                <div *ngIf="f.location.errors.required">Kérem adja meg a helyszínt</div>
+              </div>
+            </div>
+            <div class="form">
+              <label for="time">Időpont</label><br>
+              <input type="text" id="time" autocomplete="off" formControlName = "time">
+              <div *ngIf="submitted && f.time.errors" class="invalid-feedback">
+                <div *ngIf="f.time.errors.required">Kérem adja meg az időpontot</div>
+              </div>
+            </div>
+            <div class="form">
+              <label for="type">Milyen típusú:</label><br>
+              <select name="type" id="type" formControlName= "type">
+                <option value="lectur">Előadás</option>
+                <option value="practise" selected>Gyakorlat</option>
+              </select>
+              <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+                <div *ngIf="f.type.errors.required">Kérem válasszon egyet a lehetőségek közül</div>
+              </div>
+            </div>
+            <div class="form">
+              <label for="lecturer">Ki az oktató:</label><br>
+              <select name="lecturer" id="lecturer" formControlName= "lecturerID">
+                <option value="1">Kovacs Jozses</option>
+                <option value="2" selected>Kappa Pride</option>
+              </select>
+              <div *ngIf="submitted && f.lecturerID.errors" class="invalid-feedback">
+                <div *ngIf="f.lecturerID.errors.required">Kérem válasszon egyet az oktatók közül</div>
+              </div>
+            </div>
+            <div class="btn-holder">
+              <input type="submit" value="Létrehozás">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

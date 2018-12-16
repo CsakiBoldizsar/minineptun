@@ -7,6 +7,9 @@ import { RegisterComponent } from './pages/register/register.component'
 import { PagesnotfoundComponent } from './pages/pagesnotfound/pagesnotfound.component';
 import { CourseListComponent } from './pages/course-list/course-list.component';
 import { MyCoursesComponent } from './pages/my-courses/my-courses.component';
+import { CourseDetailsComponent } from './pages/course-details/course-details.component';
+import { NewCourseComponent } from './pages/new-course/new-course.component';
+import { SubjectListComponent } from './pages/subject-list/subject-list.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -30,6 +33,21 @@ const routes: Routes = [
   {
     path: 'mycourses',
     component: MyCoursesComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'newcourse',
+    component: NewCourseComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'coursedetails/:id',
+    component: CourseDetailsComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'subjects',
+    component: SubjectListComponent,
     canActivate: [AuthGuard]
   },
   {

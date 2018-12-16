@@ -1,13 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse" *ngIf = "show">
     <div class="container-fluid">
       <div class="navbar-header">
         <a class="navbar-brand" routerLink >Minineptun</a>
       </div>
       <ul class="nav navbar-nav">
         <li><a routerLink = "">Home</a></li>
-        <li><a routerLink = "/mycourses">Felvett Tárgyak</a></li>
-        <li><a routerLink = "/courselist">Tárgy felvétel</a></li>
+        <li><a routerLink = "/mycourses">Felvett kurzusok</a></li>
+        <li><a routerLink = "/courselist">Kurzus felvétel</a></li>
+        <li><a routerLink = "/newcourse">Új kurzús létrehozása</a></li>
+        <li><a routerLink = "/subjects">Tárgyak listája</a></li>
         <li><a routerLink = "/login">Login</a></li>
       </ul>
     </div>
