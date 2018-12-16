@@ -31,8 +31,8 @@
             </div>
             <div class="form">
               <label for="lecturer">Ki az oktató:</label><br>
-              <select name="lecturer" id="lecturer" formControlName= "lecturerID">
-               <option *ngFor = "let lecturer of lecturers" value="{{lecturer}}">{{lecturer.name}}</option>
+              <select name="lecturer" id="lecturer" formControlName= "lecturer">
+               <option *ngFor = "let lecturer of lecturers" value="{{lecturer.name}}">{{lecturer.name}}</option>
               </select>
               <div *ngIf="submitted && f.lecturerID.errors" class="invalid-feedback">
                 <div *ngIf="f.lecturerID.errors.required">Kérem válasszon egyet az oktatók közül</div>
