@@ -7,15 +7,15 @@
         <li class="list-group-item">A tárgy id-ja: {{course.id}}</li>
         <li class="list-group-item">A tárgy helyszíne: {{course.location}}</li>
         <li class="list-group-item">A tárgy típusa(LECTURE = EA,PRACTISE = GY): {{course.type}}</li>
-        <li class="list-group-item"> A kuruzra járó diákok
+        <!--<li class="list-group-item"> A kurzusra járó diákok
           <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"> Hallgatók
             <span class="caret"></span></button>
-            <!--<ul class="dropdown-menu">
+            <ul class="dropdown-menu">
               <li *ngFor = 'let student of students'>{{student.name}}</li>
-            </ul>-->
+            </ul>
           </div>
-        </li>
+        </li>-->
         <li class="list-group-item" *ngIf = "course.lecturer">A kurzust oktató tanár: {{course.lecturer}}</li>
         <li class="list-group-item">A kurzus tárgya: {{course.subject.name}}</li>
       </ul>
