@@ -17,6 +17,9 @@ Egy funckió folyamatának leírása - regisztráció:
     elmenti az adatbázisban. Student és lecturer esetén a megfelelő objektumok szintén létrejönnek és mentése kerülnek.
     Végül a server http választ küld a frontendnek. Sikeres regisztráció esetén http 200-al, sikertelen esetén 403,401 el válaszol. Ezután a felhasználó a bejelentkezési oldalra kerül átirányításra.
 
+# Usecase diagram
+
+![alttext](https://github.com/CsakiBoldizsar/minineptun/blob/master/usecase.jpg)
 
 Felhasználói dokumentáció:
 
